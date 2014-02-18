@@ -15,6 +15,24 @@ The following packages are available from Cydia:
   * gnupg  (required)
   * git    (optional)
 
+Building
+--------
+
+Note: This will only work on a jailbroken device.
+
+This will build on the iPhone (read up for cross compiling from OSX/Linux) You'll need to install theos:
+
+1. Open Cydia and install "iOS Toolchain". This will upgrade you from saurik's iOS 2.0 build tools to the latest ones
+2. Delete /var/theos if you have an old version
+3. Over SSH, type in this: "cd /var && git clone git://github.com/coolstar/theos.git
+4. Grab a copy of a newer iOS SDK and place it so that it's in /var/theos/sdks/iPhoneOS.sdk
+
+The iOS SDK can be obtained from your mac after installing Xcode at /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/
+
+Clone this repo, and run "make package" followed by "make package install".
+
+Once the package is installed, you'll need to restart springboard with "killall SpringBoard", and may need to restart your iPhone before the app shows up.
+
 Setup
 -----
 
@@ -60,6 +78,9 @@ Clicking on the name or password box will copy the respective contents to the pa
 
 Todo
 ----
+
+* Full screen iOS7 view
+* Require password /touchID to unlock (optional)
 
 * Simplify initial setup
 
